@@ -46,8 +46,8 @@ It’s been tested over time and proven stable. The Masked Compression feature o
 
 ## 📥 Download
 
-- **Latest:** [v2026.04.07](https://github.com/CarldricGaming/Mini-Compressor/releases/tag/v2026.04.07)  
-- **Previous:** [v2025.11.17](https://github.com/CarldricGaming/Mini-Compressor/releases/tag/v2025.12.14)  
+- **Latest:** [v2026.06.12](https://github.com/CarldricGaming/Mini-Compressor/releases/tag/v2026.06.12)   
+- **Previous:** [v2026.04.07](https://github.com/CarldricGaming/Mini-Compressor/releases/tag/v2026.04.07)  
 - **All versions:** [Releases page](https://github.com/CarldricGaming/Mini-Compressor/releases)
 
 ---
