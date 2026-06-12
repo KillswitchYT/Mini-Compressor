@@ -5802,20 +5802,74 @@ object Form1: TForm1
               object MenuItem33: TMenuItem
                 Locked = True
                 Text = 'Language'
+                object MenuItem36: TMenuItem
+                  Locked = True
+                  Text = #32321#39636#20013#25991
+                  OnClick = MenuItem36Click
+                end
                 object MenuItem34: TMenuItem
                   Locked = True
                   Text = 'English'
                   OnClick = MenuItem34Click
+                end
+                object MenuItem37: TMenuItem
+                  Locked = True
+                  Text = 'Indonesia'
+                  OnClick = MenuItem37Click
+                end
+                object MenuItem38: TMenuItem
+                  Locked = True
+                  Text = #26085#26412#35486
+                  OnClick = MenuItem38Click
+                end
+                object MenuItem39: TMenuItem
+                  Locked = True
+                  Text = #54620#44397#50612
+                  OnClick = MenuItem39Click
                 end
                 object MenuItem35: TMenuItem
                   Locked = True
                   Text = 'Malaysia'
                   OnClick = MenuItem35Click
                 end
-                object MenuItem36: TMenuItem
+              end
+              object MenuItem40: TMenuItem
+                Locked = True
+                Text = 'Oodle Version'
+                object MenuItem41: TMenuItem
                   Locked = True
-                  Text = #32321#39636#20013#25991
-                  OnClick = MenuItem36Click
+                  Text = 'v2.3'
+                  OnClick = MenuItem41Click
+                end
+                object MenuItem42: TMenuItem
+                  Locked = True
+                  Text = 'v2.4'
+                  OnClick = MenuItem42Click
+                end
+                object MenuItem43: TMenuItem
+                  Locked = True
+                  Text = 'v2.5'
+                  OnClick = MenuItem43Click
+                end
+                object MenuItem44: TMenuItem
+                  Locked = True
+                  Text = 'v2.6'
+                  OnClick = MenuItem44Click
+                end
+                object MenuItem45: TMenuItem
+                  Locked = True
+                  Text = 'v2.7'
+                  OnClick = MenuItem45Click
+                end
+                object MenuItem46: TMenuItem
+                  Locked = True
+                  Text = 'v2.8'
+                  OnClick = MenuItem46Click
+                end
+                object MenuItem47: TMenuItem
+                  Locked = True
+                  Text = 'v2.9'
+                  OnClick = MenuItem47Click
                 end
               end
             end
@@ -11259,7 +11313,7 @@ object Form1: TForm1
                             ExplicitSize.cy = 8.000000000000000000
                             object Button1: TButton
                               Position.X = 792.000000000000000000
-                              Position.Y = 538.000000000000000000
+                              Position.Y = 536.000000000000000000
                               Size.Width = 81.000000000000000000
                               Size.Height = 22.000000000000000000
                               Size.PlatformDefault = False

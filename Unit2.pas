@@ -90,7 +90,7 @@ begin
       MB_ICONERROR or MB_OK);
   end;
 
-  StringGrid1.RowCount:= 35;
+  StringGrid1.RowCount:= 37;
   // The Name of Creator
   StringGrid1.Cells[0,0] := '7-Zip';
     StringGrid1.Cells[1,0] := 'Igor Pavlov and Shelwien';
@@ -199,6 +199,15 @@ begin
 
   StringGrid1.Cells[0,33] := 'HALAC';
     StringGrid1.Cells[1,33] := 'Hakan Abbas';
+
+  StringGrid1.Cells[0,34] := 'OODLE';
+    StringGrid1.Cells[1,34] := 'RAD Game Tools';
+
+  StringGrid1.Cells[0,35] := 'ZCM';
+    StringGrid1.Cells[1,35] := 'Nania Francesco Antonio';
+
+  StringGrid1.Cells[0,36] := 'LZHAM';
+    StringGrid1.Cells[1,36] := 'Rich Geldreich';
 end;
 
 procedure TForm2.FormShow(Sender: TObject);

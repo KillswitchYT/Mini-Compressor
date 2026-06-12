@@ -384,6 +384,17 @@ type
     MenuItem34: TMenuItem;
     MenuItem35: TMenuItem;
     MenuItem36: TMenuItem;
+    MenuItem37: TMenuItem;
+    MenuItem38: TMenuItem;
+    MenuItem39: TMenuItem;
+    MenuItem40: TMenuItem;
+    MenuItem41: TMenuItem;
+    MenuItem42: TMenuItem;
+    MenuItem43: TMenuItem;
+    MenuItem44: TMenuItem;
+    MenuItem45: TMenuItem;
+    MenuItem46: TMenuItem;
+    MenuItem47: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure SearchEditButton1Click(Sender: TObject);
     procedure SearchEditButton2Click(Sender: TObject);
@@ -496,8 +507,20 @@ type
     procedure MenuItem35Click(Sender: TObject);
     procedure MenuItem34Click(Sender: TObject);
     procedure MenuItem36Click(Sender: TObject);
+    procedure MenuItem37Click(Sender: TObject);
+    procedure MenuItem38Click(Sender: TObject);
+    procedure MenuItem39Click(Sender: TObject);
+    procedure MenuItem41Click(Sender: TObject);
+    procedure MenuItem42Click(Sender: TObject);
+    procedure MenuItem43Click(Sender: TObject);
+    procedure MenuItem44Click(Sender: TObject);
+    procedure MenuItem45Click(Sender: TObject);
+    procedure MenuItem46Click(Sender: TObject);
+    procedure MenuItem47Click(Sender: TObject);
   private
     { Private declarations }
+    procedure LoadLanguage;
+    procedure LoadOodleLibrary(version: string);
   public
     { Public declarations }
     var
@@ -686,6 +709,229 @@ begin
   CurrentUses:= IniRead(GetAnySource('..\Resources\Language.ini'), 'Uses', 'Current');
   WhatFileLanguage:= IniRead(GetAnySource('..\Resources\Language.ini'), 'Language', CurrentUses);
   Result:= GetAnySource('..\Resources\' + WhatFileLanguage);
+end;
+
+procedure DeleteOodleVersion;
+begin
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_3_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_3_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_3_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_3_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_4_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_4_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_4_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_4_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_5_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_5_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_5_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_5_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_6_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_6_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_6_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_6_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_7_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_7_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_7_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_7_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_8_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_8_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_8_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_8_win64.dll'));
+  end;
+
+  if (FileExists(GetAnySource('..\Compression\FreeArc\XTool\oo2core_9_win64.dll')))
+  and (FileExists(GetAnySource('..\Resources\ISDone_resource\oo2core_9_win64.dll'))) then begin
+    DeleteFile(GetAnySource('..\Compression\FreeArc\XTool\oo2core_9_win64.dll'));
+    DeleteFile(GetAnySource('..\Resources\ISDone_resource\oo2core_9_win64.dll'));
+  end;
+end;
+
+procedure TForm1.LoadLanguage;
+begin
+  if FileExists(GetAnySource('..\Resources\Language.ini')) then
+  begin
+    // TopBar
+    MenuItem4.Text := IniRead(MyLanguage, 'TopBar', '1');
+    MenuItem18.Text := IniRead(MyLanguage, 'TopBar', '2');
+    MenuItem27.Text := IniRead(MyLanguage, 'TopBar', '3');
+    CheckBox8.Text := IniRead(MyLanguage, 'TopBar', '4');
+    CheckBox1.Text := IniRead(MyLanguage, 'TopBar', '5');
+
+    // Option_TB
+    MenuItem20.Text := IniRead(MyLanguage, 'Option_TB', '1');
+    MenuItem19.Text := IniRead(MyLanguage, 'Option_TB', '2');
+    MenuItem22.Text := IniRead(MyLanguage, 'Option_TB', '3');
+    MenuItem23.Text := IniRead(MyLanguage, 'Option_TB', '4');
+    MenuItem25.Text := IniRead(MyLanguage, 'Option_TB', '5');
+    MenuItem29.Text := IniRead(MyLanguage, 'Option_TB', '6');
+    MenuItem33.Text := IniRead(MyLanguage, 'Option_TB', '7');
+    MenuItem40.Text := IniRead(MyLanguage, 'Option_TB', '8');
+
+    // Help_TB
+    MenuItem13.Text := IniRead(MyLanguage, 'Help_TB', '1');
+    MenuItem32.Text := IniRead(MyLanguage, 'Help_TB', '2');
+    MenuItem28.Text := IniRead(MyLanguage, 'Help_TB', '3');
+
+    // BottomBar
+    MenuItem1.Text := IniRead(MyLanguage, 'BottomBar', '1') + ': Carldric Clement';
+
+    // Freearc
+    GroupBox1.Text := IniRead(MyLanguage, 'FreeArc', '1');
+    GroupBox26.Text := IniRead(MyLanguage, 'FreeArc', '1');
+    Label1.Text := IniRead(MyLanguage, 'FreeArc', '2');
+    Label27.Text := IniRead(MyLanguage, 'FreeArc', '2');
+    Label2.Text := IniRead(MyLanguage, 'FreeArc', '3');
+    Label28.Text := IniRead(MyLanguage, 'FreeArc', '3');
+    GroupBox2.Text := IniRead(MyLanguage, 'FreeArc', '4');
+    GroupBox27.Text := IniRead(MyLanguage, 'FreeArc', '4');
+    Label3.Text := IniRead(MyLanguage, 'FreeArc', '5');
+    Label29.Text := IniRead(MyLanguage, 'FreeArc', '5');
+    Label4.Text := IniRead(MyLanguage, 'FreeArc', '6');
+    Label31.Text := IniRead(MyLanguage, 'FreeArc', '7');
+    GroupBox3.Text := IniRead(MyLanguage, 'FreeArc', '8');
+    GroupBox28.Text := IniRead(MyLanguage, 'FreeArc', '8');
+    GroupBox4.Text := IniRead(MyLanguage, 'FreeArc', '9');
+    GroupBox29.Text := IniRead(MyLanguage, 'FreeArc', '9');
+    GroupBox5.Text := IniRead(MyLanguage, 'FreeArc', '10');
+    GroupBox34.Text := IniRead(MyLanguage, 'FreeArc', '11');
+    GroupBox35.Text := IniRead(MyLanguage, 'FreeArc', '11');
+    GroupBox10.Text := IniRead(MyLanguage, 'FreeArc', '12');
+    CheckBox7.Text := IniRead(MyLanguage, 'FreeArc', '12');
+    CheckBox2.Text := IniRead(MyLanguage, 'FreeArc', '13');
+    CheckBox9.Text := IniRead(MyLanguage, 'FreeArc', '14');
+    CheckBox10.Text := IniRead(MyLanguage, 'FreeArc', '14');
+    Button36.Text := IniRead(MyLanguage, 'FreeArc', '15');
+    Button37.Text := IniRead(MyLanguage, 'FreeArc', '15');
+    Button1.Text := IniRead(MyLanguage, 'FreeArc', '16');
+    Button31.Text := IniRead(MyLanguage, 'FreeArc', '16');
+
+    // SevenZip
+    GroupBox6.Text := IniRead(MyLanguage, 'SevenZip', '1');
+    Label5.Text := IniRead(MyLanguage, 'SevenZip', '2');
+    Label6.Text := IniRead(MyLanguage, 'SevenZip', '3');
+    GroupBox7.Text := IniRead(MyLanguage, 'SevenZip', '4');
+    Label7.Text := IniRead(MyLanguage, 'SevenZip', '5');
+    Label8.Text := IniRead(MyLanguage, 'SevenZip', '6');
+    Label9.Text := IniRead(MyLanguage, 'SevenZip', '7');
+    GroupBox8.Text := IniRead(MyLanguage, 'SevenZip', '8');
+    GroupBox9.Text := IniRead(MyLanguage, 'SevenZip', '9');
+    GroupBox24.Text := IniRead(MyLanguage, 'SevenZip', '10');
+    CheckBox4.Text := IniRead(MyLanguage, 'SevenZip', '11');
+    CheckBox11.Text := IniRead(MyLanguage, 'SevenZip', '12');
+    Button38.Text := IniRead(MyLanguage, 'SevenZip', '13');
+    Button4.Text := IniRead(MyLanguage, 'SevenZip', '14');
+
+    // OSCDIMG
+    GroupBox21.Text := IniRead(MyLanguage, 'OSCDIMG', '1');
+    Label38.Text := IniRead(MyLanguage, 'OSCDIMG', '2');
+    Label39.Text := IniRead(MyLanguage, 'OSCDIMG', '3');
+    GroupBox23.Text := IniRead(MyLanguage, 'OSCDIMG', '4');
+    GroupBox22.Text := IniRead(MyLanguage, 'OSCDIMG', '5');
+    Button19.Text := IniRead(MyLanguage, 'OSCDIMG', '6');
+
+    // Inno Maker
+    Button7.Text := IniRead(MyLanguage, 'InnoMaker', '1');
+    Button9.Text := IniRead(MyLanguage, 'InnoMaker', '2');
+    Button16.Text := IniRead(MyLanguage, 'InnoMaker', '3');
+    Button10.Text := IniRead(MyLanguage, 'InnoMaker', '4');
+    Button13.Text := IniRead(MyLanguage, 'InnoMaker', '5');
+    Button18.Text := IniRead(MyLanguage, 'InnoMaker', '6');
+    Button27.Text := IniRead(MyLanguage, 'InnoMaker', '7');
+    Button24.Text := IniRead(MyLanguage, 'InnoMaker', '8');
+    Button26.Text := IniRead(MyLanguage, 'InnoMaker', '9');
+    Button30.Text := IniRead(MyLanguage, 'InnoMaker', '10');
+    Button29.Text := IniRead(MyLanguage, 'InnoMaker', '11');
+
+    // IM_General
+    GroupBox11.Text := IniRead(MyLanguage, 'IM_General', '1');
+    Label10.Text := IniRead(MyLanguage, 'IM_General', '2');
+    Label11.Text := IniRead(MyLanguage, 'IM_General', '3');
+    GroupBox12.Text := IniRead(MyLanguage, 'IM_General', '4');
+    Label13.Text := IniRead(MyLanguage, 'IM_General', '5') + ' -> BLUE;GREEN;GRAY;ORANGE;PINK;RED;YELLOW;';
+    Label12.Text := IniRead(MyLanguage, 'IM_General', '6');
+    Label14.Text := IniRead(MyLanguage, 'IM_General', '7');
+    GroupBox13.Text := IniRead(MyLanguage, 'IM_General', '8');
+    Label15.Text := IniRead(MyLanguage, 'IM_General', '9');
+    Label16.Text := IniRead(MyLanguage, 'IM_General', '10');
+    Label17.Text := IniRead(MyLanguage, 'IM_General', '11');
+    GroupBox14.Text := IniRead(MyLanguage, 'IM_General', '12');
+    Button8.Text := IniRead(MyLanguage, 'IM_General', '13');
+    GroupBox15.Text := IniRead(MyLanguage, 'IM_General', '14');
+    CheckBox3.Text := IniRead(MyLanguage, 'IM_General', '15');
+    GroupBox18.Text := IniRead(MyLanguage, 'IM_General', '16');
+
+    // IM SysReq
+    GroupBox16.Text := IniRead(MyLanguage, 'IM_SysReq', '1');
+    Label18.Text := IniRead(MyLanguage, 'IM_SysReq', '2');
+    Label19.Text := IniRead(MyLanguage, 'IM_SysReq', '3');
+    Label20.Text := IniRead(MyLanguage, 'IM_SysReq', '4');
+    Label21.Text := IniRead(MyLanguage, 'IM_SysReq', '5');
+    Label22.Text := IniRead(MyLanguage, 'IM_SysReq', '6');
+    GroupBox17.Text := IniRead(MyLanguage, 'IM_SysReq', '7');
+    Label23.Text := IniRead(MyLanguage, 'IM_SysReq', '8');
+    Label24.Text := IniRead(MyLanguage, 'IM_SysReq', '9');
+
+    // IM INFO
+    Button17.Text := IniRead(MyLanguage, 'IM_INFO', '1');
+    Button11.Text := IniRead(MyLanguage, 'IM_INFO', '2');
+    Button12.Text := IniRead(MyLanguage, 'IM_INFO', '3');
+    Button14.Text := IniRead(MyLanguage, 'IM_INFO', '2');
+    Button15.Text := IniRead(MyLanguage, 'IM_INFO', '3');
+    Button22.Text := IniRead(MyLanguage, 'IM_INFO', '2');
+    Button23.Text := IniRead(MyLanguage, 'IM_INFO', '3');
+
+    // IM Design
+    GroupBox19.Text := IniRead(MyLanguage, 'IM_Design', '1');
+    Button25.Text := IniRead(MyLanguage, 'IM_Design', '2');
+    GroupBox20.Text := IniRead(MyLanguage, 'IM_Design', '3');
+    GroupBox25.Text := IniRead(MyLanguage, 'IM_Design', '4');
+    Label25.Text := IniRead(MyLanguage, 'IM_Design', '5');
+    Label26.Text := IniRead(MyLanguage, 'IM_Design', '6');
+    Label30.Text := IniRead(MyLanguage, 'IM_Design', '7');
+
+    // XHash
+    GroupBox31.Text := IniRead(MyLanguage, 'XHash', '1');
+    Label32.Text := IniRead(MyLanguage, 'XHash', '2');
+    Label33.Text := IniRead(MyLanguage, 'XHash', '3');
+    GroupBox32.Text := IniRead(MyLanguage, 'XHash', '4');
+    Label34.Text := IniRead(MyLanguage, 'XHash', '5');
+    GroupBox33.Text := IniRead(MyLanguage, 'XHash', '6');
+    Button39.Text := IniRead(MyLanguage, 'XHash', '7');
+    Button40.Text := IniRead(MyLanguage, 'XHash', '8');
+  end
+  else begin
+    sndPlaySound(GetAnySource('..\Resources\MC_ERROR.wav'),SND_ASYNC);
+    MessageBox(FmxHandleToHWND(Handle),'Missing file' +#13 +#13
+      +'"Resources\Language.ini"', 'Error',
+      MB_ICONERROR or MB_OK);
+  end;
+end;
+
+procedure TForm1.LoadOodleLibrary(version: string);
+begin
+  if FileExists(GetAnySource('..\Compression\Oodle\v2.' + version + '\oo2core_' + version + '_win64.dll')) then
+  begin
+    TFile.Copy(GetAnySource('..\Compression\Oodle\v2.' + version + '\oo2core_' + version + '_win64.dll'),
+      GetAnySource('..\Compression\FreeArc\XTool\oo2core_' + version + '_win64.dll'), True);
+
+    TFile.Copy(GetAnySource('..\Compression\Oodle\v2.' + version + '\oo2core_' + version + '_win64.dll'),
+      GetAnySource('..\Resources\ISDone_resource\oo2core_' + version + '_win64.dll'), True);
+
+    sndPlaySound(GetAnySource('..\Resources\MC_OK.wav'),SND_ASYNC);
+    MessageBox(FmxHandleToHWND(Handle), PChar('oo2core_' + version + '_win64.dll has been used.'
+      +#13 +'Please make sure if it works on XTool. ' +#13 +#13 +'uses -xtunreal'), 'Finished',
+      MB_ICONINFORMATION or MB_OK);
+  end;
 end;
 
 //========== _+_ ==========
@@ -3573,160 +3819,7 @@ begin
     end;
   end;
 
-  if FileExists(GetAnySource('..\Resources\Language.ini')) then
-  begin
-    // TopBar
-    MenuItem4.Text := IniRead(MyLanguage, 'TopBar', '1');
-    MenuItem18.Text := IniRead(MyLanguage, 'TopBar', '2');
-    MenuItem27.Text := IniRead(MyLanguage, 'TopBar', '3');
-
-    // Option_TB
-    MenuItem20.Text := IniRead(MyLanguage, 'Option_TB', '1');
-    MenuItem19.Text := IniRead(MyLanguage, 'Option_TB', '2');
-    MenuItem22.Text := IniRead(MyLanguage, 'Option_TB', '3');
-    MenuItem23.Text := IniRead(MyLanguage, 'Option_TB', '4');
-    MenuItem25.Text := IniRead(MyLanguage, 'Option_TB', '5');
-    MenuItem29.Text := IniRead(MyLanguage, 'Option_TB', '6');
-    MenuItem33.Text := IniRead(MyLanguage, 'Option_TB', '7');
-
-    // Help_TB
-    MenuItem13.Text := IniRead(MyLanguage, 'Help_TB', '1');
-    MenuItem32.Text := IniRead(MyLanguage, 'Help_TB', '2');
-    MenuItem28.Text := IniRead(MyLanguage, 'Help_TB', '3');
-
-    // BottomBar
-    MenuItem1.Text := IniRead(MyLanguage, 'BottomBar', '1') + ': Carldric Clement';
-
-    // Freearc
-    GroupBox1.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    GroupBox26.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    Label1.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label27.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label2.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    Label28.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    GroupBox2.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    GroupBox27.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    Label3.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label29.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label4.Text := IniRead(MyLanguage, 'FreeArc', '6');
-    Label31.Text := IniRead(MyLanguage, 'FreeArc', '7');
-    GroupBox3.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox28.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox4.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox29.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox5.Text := IniRead(MyLanguage, 'FreeArc', '10');
-    GroupBox34.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox35.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox10.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox7.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox2.Text := IniRead(MyLanguage, 'FreeArc', '13');
-    CheckBox9.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    CheckBox10.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    Button36.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button37.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button1.Text := IniRead(MyLanguage, 'FreeArc', '16');
-    Button31.Text := IniRead(MyLanguage, 'FreeArc', '16');
-
-    // SevenZip
-    GroupBox6.Text := IniRead(MyLanguage, 'SevenZip', '1');
-    Label5.Text := IniRead(MyLanguage, 'SevenZip', '2');
-    Label6.Text := IniRead(MyLanguage, 'SevenZip', '3');
-    GroupBox7.Text := IniRead(MyLanguage, 'SevenZip', '4');
-    Label7.Text := IniRead(MyLanguage, 'SevenZip', '5');
-    Label8.Text := IniRead(MyLanguage, 'SevenZip', '6');
-    Label9.Text := IniRead(MyLanguage, 'SevenZip', '7');
-    GroupBox8.Text := IniRead(MyLanguage, 'SevenZip', '8');
-    GroupBox9.Text := IniRead(MyLanguage, 'SevenZip', '9');
-    GroupBox24.Text := IniRead(MyLanguage, 'SevenZip', '10');
-    CheckBox4.Text := IniRead(MyLanguage, 'SevenZip', '11');
-    CheckBox11.Text := IniRead(MyLanguage, 'SevenZip', '12');
-    Button38.Text := IniRead(MyLanguage, 'SevenZip', '13');
-    Button4.Text := IniRead(MyLanguage, 'SevenZip', '14');
-
-    // OSCDIMG
-    GroupBox21.Text := IniRead(MyLanguage, 'OSCDIMG', '1');
-    Label38.Text := IniRead(MyLanguage, 'OSCDIMG', '2');
-    Label39.Text := IniRead(MyLanguage, 'OSCDIMG', '3');
-    GroupBox23.Text := IniRead(MyLanguage, 'OSCDIMG', '4');
-    GroupBox22.Text := IniRead(MyLanguage, 'OSCDIMG', '5');
-    Button19.Text := IniRead(MyLanguage, 'OSCDIMG', '6');
-
-    // Inno Maker
-    Button7.Text := IniRead(MyLanguage, 'InnoMaker', '1');
-    Button9.Text := IniRead(MyLanguage, 'InnoMaker', '2');
-    Button16.Text := IniRead(MyLanguage, 'InnoMaker', '3');
-    Button10.Text := IniRead(MyLanguage, 'InnoMaker', '4');
-    Button13.Text := IniRead(MyLanguage, 'InnoMaker', '5');
-    Button18.Text := IniRead(MyLanguage, 'InnoMaker', '6');
-    Button27.Text := IniRead(MyLanguage, 'InnoMaker', '7');
-    Button24.Text := IniRead(MyLanguage, 'InnoMaker', '8');
-    Button26.Text := IniRead(MyLanguage, 'InnoMaker', '9');
-    Button30.Text := IniRead(MyLanguage, 'InnoMaker', '10');
-    Button29.Text := IniRead(MyLanguage, 'InnoMaker', '11');
-
-    // IM_General
-    GroupBox11.Text := IniRead(MyLanguage, 'IM_General', '1');
-    Label10.Text := IniRead(MyLanguage, 'IM_General', '2');
-    Label11.Text := IniRead(MyLanguage, 'IM_General', '3');
-    GroupBox12.Text := IniRead(MyLanguage, 'IM_General', '4');
-    Label13.Text := IniRead(MyLanguage, 'IM_General', '5');
-    Label12.Text := IniRead(MyLanguage, 'IM_General', '6');
-    Label14.Text := IniRead(MyLanguage, 'IM_General', '7');
-    GroupBox13.Text := IniRead(MyLanguage, 'IM_General', '8');
-    Label15.Text := IniRead(MyLanguage, 'IM_General', '9');
-    Label16.Text := IniRead(MyLanguage, 'IM_General', '10');
-    Label17.Text := IniRead(MyLanguage, 'IM_General', '11');
-    GroupBox14.Text := IniRead(MyLanguage, 'IM_General', '12');
-    Button8.Text := IniRead(MyLanguage, 'IM_General', '13');
-    GroupBox15.Text := IniRead(MyLanguage, 'IM_General', '14');
-    CheckBox3.Text := IniRead(MyLanguage, 'IM_General', '15');
-    GroupBox18.Text := IniRead(MyLanguage, 'IM_General', '16');
-
-    // IM SysReq
-    GroupBox16.Text := IniRead(MyLanguage, 'IM_SysReq', '1');
-    Label18.Text := IniRead(MyLanguage, 'IM_SysReq', '2');
-    Label19.Text := IniRead(MyLanguage, 'IM_SysReq', '3');
-    Label20.Text := IniRead(MyLanguage, 'IM_SysReq', '4');
-    Label21.Text := IniRead(MyLanguage, 'IM_SysReq', '5');
-    Label22.Text := IniRead(MyLanguage, 'IM_SysReq', '6');
-    GroupBox17.Text := IniRead(MyLanguage, 'IM_SysReq', '7');
-    Label23.Text := IniRead(MyLanguage, 'IM_SysReq', '8');
-    Label24.Text := IniRead(MyLanguage, 'IM_SysReq', '9');
-
-    // IM INFO
-    Button17.Text := IniRead(MyLanguage, 'IM_INFO', '1');
-    Button11.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button12.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button14.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button15.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button22.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button23.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-
-    // IM Design
-    GroupBox19.Text := IniRead(MyLanguage, 'IM_Design', '1');
-    Button25.Text := IniRead(MyLanguage, 'IM_Design', '2');
-    GroupBox20.Text := IniRead(MyLanguage, 'IM_Design', '3');
-    GroupBox25.Text := IniRead(MyLanguage, 'IM_Design', '4');
-    Label25.Text := IniRead(MyLanguage, 'IM_Design', '5');
-    Label26.Text := IniRead(MyLanguage, 'IM_Design', '6');
-    Label30.Text := IniRead(MyLanguage, 'IM_Design', '7');
-
-    // XHash
-    GroupBox31.Text := IniRead(MyLanguage, 'XHash', '1');
-    Label32.Text := IniRead(MyLanguage, 'XHash', '2');
-    Label33.Text := IniRead(MyLanguage, 'XHash', '3');
-    GroupBox32.Text := IniRead(MyLanguage, 'XHash', '4');
-    Label34.Text := IniRead(MyLanguage, 'XHash', '5');
-    GroupBox33.Text := IniRead(MyLanguage, 'XHash', '6');
-    Button39.Text := IniRead(MyLanguage, 'XHash', '7');
-    Button40.Text := IniRead(MyLanguage, 'XHash', '8');
-  end
-  else begin
-    sndPlaySound(GetAnySource('..\Resources\MC_ERROR.wav'),SND_ASYNC);
-    MessageBox(FmxHandleToHWND(Handle),'Missing file' +#13 +#13
-      +'"Resources\Language.ini"', 'Error',
-      MB_ICONERROR or MB_OK);
-  end;
+  LoadLanguage;
 end;
 
 procedure TForm1.Memo12ChangeTracking(Sender: TObject);
@@ -4016,162 +4109,7 @@ procedure TForm1.MenuItem34Click(Sender: TObject);
 begin
   IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','English');
   Hide;
-
-  if FileExists(GetAnySource('..\Resources\Language.ini')) then
-  begin
-    // TopBar
-    MenuItem4.Text := IniRead(MyLanguage, 'TopBar', '1');
-    MenuItem18.Text := IniRead(MyLanguage, 'TopBar', '2');
-    MenuItem27.Text := IniRead(MyLanguage, 'TopBar', '3');
-
-    // Option_TB
-    MenuItem20.Text := IniRead(MyLanguage, 'Option_TB', '1');
-    MenuItem19.Text := IniRead(MyLanguage, 'Option_TB', '2');
-    MenuItem22.Text := IniRead(MyLanguage, 'Option_TB', '3');
-    MenuItem23.Text := IniRead(MyLanguage, 'Option_TB', '4');
-    MenuItem25.Text := IniRead(MyLanguage, 'Option_TB', '5');
-    MenuItem29.Text := IniRead(MyLanguage, 'Option_TB', '6');
-    MenuItem33.Text := IniRead(MyLanguage, 'Option_TB', '7');
-
-    // Help_TB
-    MenuItem13.Text := IniRead(MyLanguage, 'Help_TB', '1');
-    MenuItem32.Text := IniRead(MyLanguage, 'Help_TB', '2');
-    MenuItem28.Text := IniRead(MyLanguage, 'Help_TB', '3');
-
-    // BottomBar
-    MenuItem1.Text := IniRead(MyLanguage, 'BottomBar', '1') + ': Carldric Clement';
-
-    // Freearc
-    GroupBox1.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    GroupBox26.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    Label1.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label27.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label2.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    Label28.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    GroupBox2.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    GroupBox27.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    Label3.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label29.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label4.Text := IniRead(MyLanguage, 'FreeArc', '6');
-    Label31.Text := IniRead(MyLanguage, 'FreeArc', '7');
-    GroupBox3.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox28.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox4.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox29.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox5.Text := IniRead(MyLanguage, 'FreeArc', '10');
-    GroupBox34.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox35.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox10.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox7.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox2.Text := IniRead(MyLanguage, 'FreeArc', '13');
-    CheckBox9.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    CheckBox10.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    Button36.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button37.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button1.Text := IniRead(MyLanguage, 'FreeArc', '16');
-    Button31.Text := IniRead(MyLanguage, 'FreeArc', '16');
-
-    // SevenZip
-    GroupBox6.Text := IniRead(MyLanguage, 'SevenZip', '1');
-    Label5.Text := IniRead(MyLanguage, 'SevenZip', '2');
-    Label6.Text := IniRead(MyLanguage, 'SevenZip', '3');
-    GroupBox7.Text := IniRead(MyLanguage, 'SevenZip', '4');
-    Label7.Text := IniRead(MyLanguage, 'SevenZip', '5');
-    Label8.Text := IniRead(MyLanguage, 'SevenZip', '6');
-    Label9.Text := IniRead(MyLanguage, 'SevenZip', '7');
-    GroupBox8.Text := IniRead(MyLanguage, 'SevenZip', '8');
-    GroupBox9.Text := IniRead(MyLanguage, 'SevenZip', '9');
-    GroupBox24.Text := IniRead(MyLanguage, 'SevenZip', '10');
-    CheckBox4.Text := IniRead(MyLanguage, 'SevenZip', '11');
-    CheckBox11.Text := IniRead(MyLanguage, 'SevenZip', '12');
-    Button38.Text := IniRead(MyLanguage, 'SevenZip', '13');
-    Button4.Text := IniRead(MyLanguage, 'SevenZip', '14');
-
-    // OSCDIMG
-    GroupBox21.Text := IniRead(MyLanguage, 'OSCDIMG', '1');
-    Label38.Text := IniRead(MyLanguage, 'OSCDIMG', '2');
-    Label39.Text := IniRead(MyLanguage, 'OSCDIMG', '3');
-    GroupBox23.Text := IniRead(MyLanguage, 'OSCDIMG', '4');
-    GroupBox22.Text := IniRead(MyLanguage, 'OSCDIMG', '5');
-    Button19.Text := IniRead(MyLanguage, 'OSCDIMG', '6');
-
-    // Inno Maker
-    Button7.Text := IniRead(MyLanguage, 'InnoMaker', '1');
-    Button9.Text := IniRead(MyLanguage, 'InnoMaker', '2');
-    Button16.Text := IniRead(MyLanguage, 'InnoMaker', '3');
-    Button10.Text := IniRead(MyLanguage, 'InnoMaker', '4');
-    Button13.Text := IniRead(MyLanguage, 'InnoMaker', '5');
-    Button18.Text := IniRead(MyLanguage, 'InnoMaker', '6');
-    Button27.Text := IniRead(MyLanguage, 'InnoMaker', '7');
-    Button24.Text := IniRead(MyLanguage, 'InnoMaker', '8');
-    Button26.Text := IniRead(MyLanguage, 'InnoMaker', '9');
-    Button30.Text := IniRead(MyLanguage, 'InnoMaker', '10');
-    Button29.Text := IniRead(MyLanguage, 'InnoMaker', '11');
-
-    // IM_General
-    GroupBox11.Text := IniRead(MyLanguage, 'IM_General', '1');
-    Label10.Text := IniRead(MyLanguage, 'IM_General', '2');
-    Label11.Text := IniRead(MyLanguage, 'IM_General', '3');
-    GroupBox12.Text := IniRead(MyLanguage, 'IM_General', '4');
-    Label13.Text := IniRead(MyLanguage, 'IM_General', '5');
-    Label12.Text := IniRead(MyLanguage, 'IM_General', '6');
-    Label14.Text := IniRead(MyLanguage, 'IM_General', '7');
-    GroupBox13.Text := IniRead(MyLanguage, 'IM_General', '8');
-    Label15.Text := IniRead(MyLanguage, 'IM_General', '9');
-    Label16.Text := IniRead(MyLanguage, 'IM_General', '10');
-    Label17.Text := IniRead(MyLanguage, 'IM_General', '11');
-    GroupBox14.Text := IniRead(MyLanguage, 'IM_General', '12');
-    Button8.Text := IniRead(MyLanguage, 'IM_General', '13');
-    GroupBox15.Text := IniRead(MyLanguage, 'IM_General', '14');
-    CheckBox3.Text := IniRead(MyLanguage, 'IM_General', '15');
-    GroupBox18.Text := IniRead(MyLanguage, 'IM_General', '16');
-
-    // IM SysReq
-    GroupBox16.Text := IniRead(MyLanguage, 'IM_SysReq', '1');
-    Label18.Text := IniRead(MyLanguage, 'IM_SysReq', '2');
-    Label19.Text := IniRead(MyLanguage, 'IM_SysReq', '3');
-    Label20.Text := IniRead(MyLanguage, 'IM_SysReq', '4');
-    Label21.Text := IniRead(MyLanguage, 'IM_SysReq', '5');
-    Label22.Text := IniRead(MyLanguage, 'IM_SysReq', '6');
-    GroupBox17.Text := IniRead(MyLanguage, 'IM_SysReq', '7');
-    Label23.Text := IniRead(MyLanguage, 'IM_SysReq', '8');
-    Label24.Text := IniRead(MyLanguage, 'IM_SysReq', '9');
-
-    // IM INFO
-    Button17.Text := IniRead(MyLanguage, 'IM_INFO', '1');
-    Button11.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button12.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button14.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button15.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button22.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button23.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-
-    // IM Design
-    GroupBox19.Text := IniRead(MyLanguage, 'IM_Design', '1');
-    Button25.Text := IniRead(MyLanguage, 'IM_Design', '2');
-    GroupBox20.Text := IniRead(MyLanguage, 'IM_Design', '3');
-    GroupBox25.Text := IniRead(MyLanguage, 'IM_Design', '4');
-    Label25.Text := IniRead(MyLanguage, 'IM_Design', '5');
-    Label26.Text := IniRead(MyLanguage, 'IM_Design', '6');
-    Label30.Text := IniRead(MyLanguage, 'IM_Design', '7');
-
-    // XHash
-    GroupBox31.Text := IniRead(MyLanguage, 'XHash', '1');
-    Label32.Text := IniRead(MyLanguage, 'XHash', '2');
-    Label33.Text := IniRead(MyLanguage, 'XHash', '3');
-    GroupBox32.Text := IniRead(MyLanguage, 'XHash', '4');
-    Label34.Text := IniRead(MyLanguage, 'XHash', '5');
-    GroupBox33.Text := IniRead(MyLanguage, 'XHash', '6');
-    Button39.Text := IniRead(MyLanguage, 'XHash', '7');
-    Button40.Text := IniRead(MyLanguage, 'XHash', '8');
-  end
-  else begin
-    sndPlaySound(GetAnySource('..\Resources\MC_ERROR.wav'),SND_ASYNC);
-    MessageBox(FmxHandleToHWND(Handle),'Missing file' +#13 +#13
-      +'"Resources\Language.ini"', 'Error',
-      MB_ICONERROR or MB_OK);
-  end;
-
+  LoadLanguage;
   Show;
 end;
 
@@ -4179,162 +4117,7 @@ procedure TForm1.MenuItem35Click(Sender: TObject);
 begin
   IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','Malaysia');
   Hide;
-
-  if FileExists(GetAnySource('..\Resources\Language.ini')) then
-  begin
-    // TopBar
-    MenuItem4.Text := IniRead(MyLanguage, 'TopBar', '1');
-    MenuItem18.Text := IniRead(MyLanguage, 'TopBar', '2');
-    MenuItem27.Text := IniRead(MyLanguage, 'TopBar', '3');
-
-    // Option_TB
-    MenuItem20.Text := IniRead(MyLanguage, 'Option_TB', '1');
-    MenuItem19.Text := IniRead(MyLanguage, 'Option_TB', '2');
-    MenuItem22.Text := IniRead(MyLanguage, 'Option_TB', '3');
-    MenuItem23.Text := IniRead(MyLanguage, 'Option_TB', '4');
-    MenuItem25.Text := IniRead(MyLanguage, 'Option_TB', '5');
-    MenuItem29.Text := IniRead(MyLanguage, 'Option_TB', '6');
-    MenuItem33.Text := IniRead(MyLanguage, 'Option_TB', '7');
-
-    // Help_TB
-    MenuItem13.Text := IniRead(MyLanguage, 'Help_TB', '1');
-    MenuItem32.Text := IniRead(MyLanguage, 'Help_TB', '2');
-    MenuItem28.Text := IniRead(MyLanguage, 'Help_TB', '3');
-
-    // BottomBar
-    MenuItem1.Text := IniRead(MyLanguage, 'BottomBar', '1') + ': Carldric Clement';
-
-    // Freearc
-    GroupBox1.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    GroupBox26.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    Label1.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label27.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label2.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    Label28.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    GroupBox2.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    GroupBox27.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    Label3.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label29.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label4.Text := IniRead(MyLanguage, 'FreeArc', '6');
-    Label31.Text := IniRead(MyLanguage, 'FreeArc', '7');
-    GroupBox3.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox28.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox4.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox29.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox5.Text := IniRead(MyLanguage, 'FreeArc', '10');
-    GroupBox34.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox35.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox10.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox7.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox2.Text := IniRead(MyLanguage, 'FreeArc', '13');
-    CheckBox9.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    CheckBox10.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    Button36.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button37.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button1.Text := IniRead(MyLanguage, 'FreeArc', '16');
-    Button31.Text := IniRead(MyLanguage, 'FreeArc', '16');
-
-    // SevenZip
-    GroupBox6.Text := IniRead(MyLanguage, 'SevenZip', '1');
-    Label5.Text := IniRead(MyLanguage, 'SevenZip', '2');
-    Label6.Text := IniRead(MyLanguage, 'SevenZip', '3');
-    GroupBox7.Text := IniRead(MyLanguage, 'SevenZip', '4');
-    Label7.Text := IniRead(MyLanguage, 'SevenZip', '5');
-    Label8.Text := IniRead(MyLanguage, 'SevenZip', '6');
-    Label9.Text := IniRead(MyLanguage, 'SevenZip', '7');
-    GroupBox8.Text := IniRead(MyLanguage, 'SevenZip', '8');
-    GroupBox9.Text := IniRead(MyLanguage, 'SevenZip', '9');
-    GroupBox24.Text := IniRead(MyLanguage, 'SevenZip', '10');
-    CheckBox4.Text := IniRead(MyLanguage, 'SevenZip', '11');
-    CheckBox11.Text := IniRead(MyLanguage, 'SevenZip', '12');
-    Button38.Text := IniRead(MyLanguage, 'SevenZip', '13');
-    Button4.Text := IniRead(MyLanguage, 'SevenZip', '14');
-
-    // OSCDIMG
-    GroupBox21.Text := IniRead(MyLanguage, 'OSCDIMG', '1');
-    Label38.Text := IniRead(MyLanguage, 'OSCDIMG', '2');
-    Label39.Text := IniRead(MyLanguage, 'OSCDIMG', '3');
-    GroupBox23.Text := IniRead(MyLanguage, 'OSCDIMG', '4');
-    GroupBox22.Text := IniRead(MyLanguage, 'OSCDIMG', '5');
-    Button19.Text := IniRead(MyLanguage, 'OSCDIMG', '6');
-
-    // Inno Maker
-    Button7.Text := IniRead(MyLanguage, 'InnoMaker', '1');
-    Button9.Text := IniRead(MyLanguage, 'InnoMaker', '2');
-    Button16.Text := IniRead(MyLanguage, 'InnoMaker', '3');
-    Button10.Text := IniRead(MyLanguage, 'InnoMaker', '4');
-    Button13.Text := IniRead(MyLanguage, 'InnoMaker', '5');
-    Button18.Text := IniRead(MyLanguage, 'InnoMaker', '6');
-    Button27.Text := IniRead(MyLanguage, 'InnoMaker', '7');
-    Button24.Text := IniRead(MyLanguage, 'InnoMaker', '8');
-    Button26.Text := IniRead(MyLanguage, 'InnoMaker', '9');
-    Button30.Text := IniRead(MyLanguage, 'InnoMaker', '10');
-    Button29.Text := IniRead(MyLanguage, 'InnoMaker', '11');
-
-    // IM_General
-    GroupBox11.Text := IniRead(MyLanguage, 'IM_General', '1');
-    Label10.Text := IniRead(MyLanguage, 'IM_General', '2');
-    Label11.Text := IniRead(MyLanguage, 'IM_General', '3');
-    GroupBox12.Text := IniRead(MyLanguage, 'IM_General', '4');
-    Label13.Text := IniRead(MyLanguage, 'IM_General', '5');
-    Label12.Text := IniRead(MyLanguage, 'IM_General', '6');
-    Label14.Text := IniRead(MyLanguage, 'IM_General', '7');
-    GroupBox13.Text := IniRead(MyLanguage, 'IM_General', '8');
-    Label15.Text := IniRead(MyLanguage, 'IM_General', '9');
-    Label16.Text := IniRead(MyLanguage, 'IM_General', '10');
-    Label17.Text := IniRead(MyLanguage, 'IM_General', '11');
-    GroupBox14.Text := IniRead(MyLanguage, 'IM_General', '12');
-    Button8.Text := IniRead(MyLanguage, 'IM_General', '13');
-    GroupBox15.Text := IniRead(MyLanguage, 'IM_General', '14');
-    CheckBox3.Text := IniRead(MyLanguage, 'IM_General', '15');
-    GroupBox18.Text := IniRead(MyLanguage, 'IM_General', '16');
-
-    // IM SysReq
-    GroupBox16.Text := IniRead(MyLanguage, 'IM_SysReq', '1');
-    Label18.Text := IniRead(MyLanguage, 'IM_SysReq', '2');
-    Label19.Text := IniRead(MyLanguage, 'IM_SysReq', '3');
-    Label20.Text := IniRead(MyLanguage, 'IM_SysReq', '4');
-    Label21.Text := IniRead(MyLanguage, 'IM_SysReq', '5');
-    Label22.Text := IniRead(MyLanguage, 'IM_SysReq', '6');
-    GroupBox17.Text := IniRead(MyLanguage, 'IM_SysReq', '7');
-    Label23.Text := IniRead(MyLanguage, 'IM_SysReq', '8');
-    Label24.Text := IniRead(MyLanguage, 'IM_SysReq', '9');
-
-    // IM INFO
-    Button17.Text := IniRead(MyLanguage, 'IM_INFO', '1');
-    Button11.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button12.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button14.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button15.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button22.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button23.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-
-    // IM Design
-    GroupBox19.Text := IniRead(MyLanguage, 'IM_Design', '1');
-    Button25.Text := IniRead(MyLanguage, 'IM_Design', '2');
-    GroupBox20.Text := IniRead(MyLanguage, 'IM_Design', '3');
-    GroupBox25.Text := IniRead(MyLanguage, 'IM_Design', '4');
-    Label25.Text := IniRead(MyLanguage, 'IM_Design', '5');
-    Label26.Text := IniRead(MyLanguage, 'IM_Design', '6');
-    Label30.Text := IniRead(MyLanguage, 'IM_Design', '7');
-
-    // XHash
-    GroupBox31.Text := IniRead(MyLanguage, 'XHash', '1');
-    Label32.Text := IniRead(MyLanguage, 'XHash', '2');
-    Label33.Text := IniRead(MyLanguage, 'XHash', '3');
-    GroupBox32.Text := IniRead(MyLanguage, 'XHash', '4');
-    Label34.Text := IniRead(MyLanguage, 'XHash', '5');
-    GroupBox33.Text := IniRead(MyLanguage, 'XHash', '6');
-    Button39.Text := IniRead(MyLanguage, 'XHash', '7');
-    Button40.Text := IniRead(MyLanguage, 'XHash', '8');
-  end
-  else begin
-    sndPlaySound(GetAnySource('..\Resources\MC_ERROR.wav'),SND_ASYNC);
-    MessageBox(FmxHandleToHWND(Handle),'Missing file' +#13 +#13
-      +'"Resources\Language.ini"', 'Error',
-      MB_ICONERROR or MB_OK);
-  end;
-
+  LoadLanguage;
   Show;
 end;
 
@@ -4342,163 +4125,95 @@ procedure TForm1.MenuItem36Click(Sender: TObject);
 begin
   IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','Chinese');
   Hide;
-
-  if FileExists(GetAnySource('..\Resources\Language.ini')) then
-  begin
-    // TopBar
-    MenuItem4.Text := IniRead(MyLanguage, 'TopBar', '1');
-    MenuItem18.Text := IniRead(MyLanguage, 'TopBar', '2');
-    MenuItem27.Text := IniRead(MyLanguage, 'TopBar', '3');
-
-    // Option_TB
-    MenuItem20.Text := IniRead(MyLanguage, 'Option_TB', '1');
-    MenuItem19.Text := IniRead(MyLanguage, 'Option_TB', '2');
-    MenuItem22.Text := IniRead(MyLanguage, 'Option_TB', '3');
-    MenuItem23.Text := IniRead(MyLanguage, 'Option_TB', '4');
-    MenuItem25.Text := IniRead(MyLanguage, 'Option_TB', '5');
-    MenuItem29.Text := IniRead(MyLanguage, 'Option_TB', '6');
-    MenuItem33.Text := IniRead(MyLanguage, 'Option_TB', '7');
-
-    // Help_TB
-    MenuItem13.Text := IniRead(MyLanguage, 'Help_TB', '1');
-    MenuItem32.Text := IniRead(MyLanguage, 'Help_TB', '2');
-    MenuItem28.Text := IniRead(MyLanguage, 'Help_TB', '3');
-
-    // BottomBar
-    MenuItem1.Text := IniRead(MyLanguage, 'BottomBar', '1') + ': Carldric Clement';
-
-    // Freearc
-    GroupBox1.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    GroupBox26.Text := IniRead(MyLanguage, 'FreeArc', '1');
-    Label1.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label27.Text := IniRead(MyLanguage, 'FreeArc', '2');
-    Label2.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    Label28.Text := IniRead(MyLanguage, 'FreeArc', '3');
-    GroupBox2.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    GroupBox27.Text := IniRead(MyLanguage, 'FreeArc', '4');
-    Label3.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label29.Text := IniRead(MyLanguage, 'FreeArc', '5');
-    Label4.Text := IniRead(MyLanguage, 'FreeArc', '6');
-    Label31.Text := IniRead(MyLanguage, 'FreeArc', '7');
-    GroupBox3.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox28.Text := IniRead(MyLanguage, 'FreeArc', '8');
-    GroupBox4.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox29.Text := IniRead(MyLanguage, 'FreeArc', '9');
-    GroupBox5.Text := IniRead(MyLanguage, 'FreeArc', '10');
-    GroupBox34.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox35.Text := IniRead(MyLanguage, 'FreeArc', '11');
-    GroupBox10.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox7.Text := IniRead(MyLanguage, 'FreeArc', '12');
-    CheckBox2.Text := IniRead(MyLanguage, 'FreeArc', '13');
-    CheckBox9.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    CheckBox10.Text := IniRead(MyLanguage, 'FreeArc', '14');
-    Button36.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button37.Text := IniRead(MyLanguage, 'FreeArc', '15');
-    Button1.Text := IniRead(MyLanguage, 'FreeArc', '16');
-    Button31.Text := IniRead(MyLanguage, 'FreeArc', '16');
-
-    // SevenZip
-    GroupBox6.Text := IniRead(MyLanguage, 'SevenZip', '1');
-    Label5.Text := IniRead(MyLanguage, 'SevenZip', '2');
-    Label6.Text := IniRead(MyLanguage, 'SevenZip', '3');
-    GroupBox7.Text := IniRead(MyLanguage, 'SevenZip', '4');
-    Label7.Text := IniRead(MyLanguage, 'SevenZip', '5');
-    Label8.Text := IniRead(MyLanguage, 'SevenZip', '6');
-    Label9.Text := IniRead(MyLanguage, 'SevenZip', '7');
-    GroupBox8.Text := IniRead(MyLanguage, 'SevenZip', '8');
-    GroupBox9.Text := IniRead(MyLanguage, 'SevenZip', '9');
-    GroupBox24.Text := IniRead(MyLanguage, 'SevenZip', '10');
-    CheckBox4.Text := IniRead(MyLanguage, 'SevenZip', '11');
-    CheckBox11.Text := IniRead(MyLanguage, 'SevenZip', '12');
-    Button38.Text := IniRead(MyLanguage, 'SevenZip', '13');
-    Button4.Text := IniRead(MyLanguage, 'SevenZip', '14');
-
-    // OSCDIMG
-    GroupBox21.Text := IniRead(MyLanguage, 'OSCDIMG', '1');
-    Label38.Text := IniRead(MyLanguage, 'OSCDIMG', '2');
-    Label39.Text := IniRead(MyLanguage, 'OSCDIMG', '3');
-    GroupBox23.Text := IniRead(MyLanguage, 'OSCDIMG', '4');
-    GroupBox22.Text := IniRead(MyLanguage, 'OSCDIMG', '5');
-    Button19.Text := IniRead(MyLanguage, 'OSCDIMG', '6');
-
-    // Inno Maker
-    Button7.Text := IniRead(MyLanguage, 'InnoMaker', '1');
-    Button9.Text := IniRead(MyLanguage, 'InnoMaker', '2');
-    Button16.Text := IniRead(MyLanguage, 'InnoMaker', '3');
-    Button10.Text := IniRead(MyLanguage, 'InnoMaker', '4');
-    Button13.Text := IniRead(MyLanguage, 'InnoMaker', '5');
-    Button18.Text := IniRead(MyLanguage, 'InnoMaker', '6');
-    Button27.Text := IniRead(MyLanguage, 'InnoMaker', '7');
-    Button24.Text := IniRead(MyLanguage, 'InnoMaker', '8');
-    Button26.Text := IniRead(MyLanguage, 'InnoMaker', '9');
-    Button30.Text := IniRead(MyLanguage, 'InnoMaker', '10');
-    Button29.Text := IniRead(MyLanguage, 'InnoMaker', '11');
-
-    // IM_General
-    GroupBox11.Text := IniRead(MyLanguage, 'IM_General', '1');
-    Label10.Text := IniRead(MyLanguage, 'IM_General', '2');
-    Label11.Text := IniRead(MyLanguage, 'IM_General', '3');
-    GroupBox12.Text := IniRead(MyLanguage, 'IM_General', '4');
-    Label13.Text := IniRead(MyLanguage, 'IM_General', '5');
-    Label12.Text := IniRead(MyLanguage, 'IM_General', '6');
-    Label14.Text := IniRead(MyLanguage, 'IM_General', '7');
-    GroupBox13.Text := IniRead(MyLanguage, 'IM_General', '8');
-    Label15.Text := IniRead(MyLanguage, 'IM_General', '9');
-    Label16.Text := IniRead(MyLanguage, 'IM_General', '10');
-    Label17.Text := IniRead(MyLanguage, 'IM_General', '11');
-    GroupBox14.Text := IniRead(MyLanguage, 'IM_General', '12');
-    Button8.Text := IniRead(MyLanguage, 'IM_General', '13');
-    GroupBox15.Text := IniRead(MyLanguage, 'IM_General', '14');
-    CheckBox3.Text := IniRead(MyLanguage, 'IM_General', '15');
-    GroupBox18.Text := IniRead(MyLanguage, 'IM_General', '16');
-
-    // IM SysReq
-    GroupBox16.Text := IniRead(MyLanguage, 'IM_SysReq', '1');
-    Label18.Text := IniRead(MyLanguage, 'IM_SysReq', '2');
-    Label19.Text := IniRead(MyLanguage, 'IM_SysReq', '3');
-    Label20.Text := IniRead(MyLanguage, 'IM_SysReq', '4');
-    Label21.Text := IniRead(MyLanguage, 'IM_SysReq', '5');
-    Label22.Text := IniRead(MyLanguage, 'IM_SysReq', '6');
-    GroupBox17.Text := IniRead(MyLanguage, 'IM_SysReq', '7');
-    Label23.Text := IniRead(MyLanguage, 'IM_SysReq', '8');
-    Label24.Text := IniRead(MyLanguage, 'IM_SysReq', '9');
-
-    // IM INFO
-    Button17.Text := IniRead(MyLanguage, 'IM_INFO', '1');
-    Button11.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button12.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button14.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button15.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-    Button22.Text := IniRead(MyLanguage, 'IM_INFO', '2');
-    Button23.Text := IniRead(MyLanguage, 'IM_INFO', '3');
-
-    // IM Design
-    GroupBox19.Text := IniRead(MyLanguage, 'IM_Design', '1');
-    Button25.Text := IniRead(MyLanguage, 'IM_Design', '2');
-    GroupBox20.Text := IniRead(MyLanguage, 'IM_Design', '3');
-    GroupBox25.Text := IniRead(MyLanguage, 'IM_Design', '4');
-    Label25.Text := IniRead(MyLanguage, 'IM_Design', '5');
-    Label26.Text := IniRead(MyLanguage, 'IM_Design', '6');
-    Label30.Text := IniRead(MyLanguage, 'IM_Design', '7');
-
-    // XHash
-    GroupBox31.Text := IniRead(MyLanguage, 'XHash', '1');
-    Label32.Text := IniRead(MyLanguage, 'XHash', '2');
-    Label33.Text := IniRead(MyLanguage, 'XHash', '3');
-    GroupBox32.Text := IniRead(MyLanguage, 'XHash', '4');
-    Label34.Text := IniRead(MyLanguage, 'XHash', '5');
-    GroupBox33.Text := IniRead(MyLanguage, 'XHash', '6');
-    Button39.Text := IniRead(MyLanguage, 'XHash', '7');
-    Button40.Text := IniRead(MyLanguage, 'XHash', '8');
-  end
-  else begin
-    sndPlaySound(GetAnySource('..\Resources\MC_ERROR.wav'),SND_ASYNC);
-    MessageBox(FmxHandleToHWND(Handle),'Missing file' +#13 +#13
-      +'"Resources\Language.ini"', 'Error',
-      MB_ICONERROR or MB_OK);
-  end;
-
+  LoadLanguage;
   Show;
+end;
+
+procedure TForm1.MenuItem37Click(Sender: TObject);
+begin
+  IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','Indonesia');
+  Hide;
+  LoadLanguage;
+  Show;
+end;
+
+procedure TForm1.MenuItem38Click(Sender: TObject);
+begin
+  IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','Japanese');
+  Hide;
+  LoadLanguage;
+  Show;
+end;
+
+procedure TForm1.MenuItem39Click(Sender: TObject);
+begin
+  IniCreate(GetAnySource('..\Resources\Language.ini'),'Uses','Current','Korean');
+  Hide;
+  LoadLanguage;
+  Show;
+end;
+
+procedure TForm1.MenuItem41Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('3');
+end;
+
+procedure TForm1.MenuItem42Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('4');
+end;
+
+procedure TForm1.MenuItem43Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('5');
+end;
+
+procedure TForm1.MenuItem44Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('6');
+end;
+
+procedure TForm1.MenuItem45Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('7');
+end;
+
+procedure TForm1.MenuItem46Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('8');
+end;
+
+procedure TForm1.MenuItem47Click(Sender: TObject);
+begin
+  DeleteOodleVersion;
+  Application.ProcessMessages;
+  Sleep(150);
+
+  LoadOodleLibrary('9');
 end;
 
 procedure TForm1.MenuItem5Click(Sender: TObject);
